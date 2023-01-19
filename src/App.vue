@@ -1,11 +1,33 @@
 <script>
+import { store } from './store';
+import axios from 'axios';
+import AppHeader from './components/AppHeader.vue';
+
 export default{
-  name: 'App'
+    name: "App",
+    components: { 
+      AppHeader 
+    },
+    data() {
+        return {
+            store
+        };
+    },
+    created() {
+        this.getProjects();
+    },
+    methods: {
+        getProjects() {
+            axios.get(`${this.store.apiUrl}/api/projects`).then(resp => {
+                this.store.projects = resp.data.results;
+            });
+        }
+    },
 }
 </script>
 
 <template>
-  <h1>Hello world</h1>
+  <AppHeader/>
 </template>
 
 <style lang="scss">

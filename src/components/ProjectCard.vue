@@ -17,7 +17,6 @@ export default{
             } else {
                 return this.project.description
             }
-
         }
     }
 }
@@ -31,7 +30,12 @@ export default{
                 <img v-else src="https://www.svaghiamo.it/wp-content/uploads/2016/09/image-not-found-4a963b95bf081c3ea02923dceaeb3f8085e1a654fc54840aac61a57a60903fef.png" alt="Nessuna immagine disponibile" class="card-img-top">
             </div>
             <div class="card-body">
+                <h6 class="text-center text-primary">{{ project.type ? project.type.name : 'Nessuna Tipologia' }}</h6>
                 <h5 class="card-title">{{ project.title }}</h5>
+                <div class="technologies my-2">
+                    <span v-if="project.technologies.length > 0" class="text-secondary me-2" v-for="technology in project.technologies" :key="technology.id">#{{ technology.name }}</span>
+                    <span v-else class="text-secondary">No technologies</span>
+                </div>
                 <p class="card-text">{{ textTruncated }}</p>
                 <a href="" class="btn btn-primary">Visualizza</a>
             </div>

@@ -36,7 +36,7 @@ export default{
                     <span v-if="project.technologies.length > 0" class="text-secondary me-2" v-for="technology in project.technologies" :key="technology.id">#{{ technology.name }}</span>
                     <span v-else class="text-secondary">No technologies</span>
                 </div>
-                <p class="card-text">{{ textTruncated }}</p>
+                <p v-if="project.description" class="card-text">{{ textTruncated }}</p>
                 <a href="" class="btn btn-primary">Visualizza</a>
             </div>
         </div>

@@ -3,16 +3,19 @@ import { store } from './store';
 import axios from 'axios';
 import AppHeader from './components/AppHeader.vue';
 import AppMain from './components/AppMain.vue';
+import AppLoader from './components/AppLoader.vue';
 
 export default{
     name: "App",
     components: {
     AppHeader,
-    AppMain
+    AppMain,
+    AppLoader
 },
     data() {
         return {
-            store
+            store,
+            loading: false
         };
     },
     created() {
@@ -20,8 +23,10 @@ export default{
     },
     methods: {
         getProjects() {
+          this.loading = true;
             axios.get(`${this.store.apiUrl}/api/projects`).then(resp => {
                 this.store.projects = resp.data.results;
+                this.loading = false;
             });
         }
     },
@@ -32,7 +37,8 @@ export default{
   <AppHeader/>
 
   <main>
-    <AppMain/>
+    <AppLoader v-if="loading"/>
+    <AppMain v-else/>
   </main>
 </template>
 

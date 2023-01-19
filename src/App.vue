@@ -2,12 +2,14 @@
 import { store } from './store';
 import axios from 'axios';
 import AppHeader from './components/AppHeader.vue';
+import AppMain from './components/AppMain.vue';
 
 export default{
     name: "App",
-    components: { 
-      AppHeader 
-    },
+    components: {
+    AppHeader,
+    AppMain
+},
     data() {
         return {
             store
@@ -28,6 +30,10 @@ export default{
 
 <template>
   <AppHeader/>
+
+  <main>
+    <AppMain/>
+  </main>
 </template>
 
 <style lang="scss">

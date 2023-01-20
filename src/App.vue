@@ -2,14 +2,12 @@
 import { store } from './store';
 import axios from 'axios';
 import AppHeader from './components/AppHeader.vue';
-import AppMain from './components/AppMain.vue';
 import AppLoader from './components/AppLoader.vue';
 
 export default{
     name: "App",
     components: {
     AppHeader,
-    AppMain,
     AppLoader
 },
     data() {

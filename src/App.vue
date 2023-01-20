@@ -37,8 +37,7 @@ export default{
   <AppHeader/>
 
   <main>
-    <AppLoader v-if="loading"/>
-    <AppMain v-else/>
+    <router-view></router-view>
   </main>
 </template>
 

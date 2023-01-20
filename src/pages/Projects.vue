@@ -1,15 +1,17 @@
 <script>
 import {store} from '../store';
-import ProjectCard from './ProjectCard.vue';
+import ProjectCard from '../components/ProjectCard.vue';
 
 export default{
-    name: "AppMain",
+    name: "Projects",
+    components: {
+        ProjectCard 
+    },
     data() {
         return {
             store,
         };
     },
-    components: { ProjectCard }
 }
 </script>
 

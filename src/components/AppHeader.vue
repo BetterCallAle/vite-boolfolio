@@ -11,6 +11,10 @@ export default{
                 {
                     linkName : 'Su di noi',
                     routeName: 'about'
+                },
+                {
+                    linkName: 'Tutti i progetti',
+                    routeName: 'projects'
                 }
             ]
         }

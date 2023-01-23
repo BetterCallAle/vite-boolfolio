@@ -21,7 +21,7 @@ export default{
     },
     computed:{
         projectType(){
-            return this.project.type ? this.project.type : 'Nessuna tipologia'
+            return this.project.type ? this.project.type.name : 'Nessuna tipologia'
         },
 
         projectImg(){

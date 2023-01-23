@@ -34,7 +34,8 @@ export default{
             //Set the page params
             const option = {
                 params: {
-                    page
+                    page,
+                    ...this.typeId && {type_id: this.typeId}
                 }
             }
 
@@ -67,7 +68,7 @@ export default{
             <div v-else class="projects-wrapper">
                 <div class="projects-top d-flex justify-content-between mb-4">
                     <!-- Filter -->
-                    <form @submit.prevent="" action="" class="d-flex">
+                    <form @submit.prevent="getProjects(1)" action="" class="d-flex">
                         <select class="form-select" v-model="typeId">
                             <option value="">Tutti</option>
                             <option v-for="singleType in types" :key="singleType.id" :value="singleType.id">{{ singleType.name }}</option>
@@ -79,12 +80,16 @@ export default{
                     <p class="text-end text-secondary">Trovati <span class="fw-bold text-black">{{ totalProjects }}</span> progetti</p>
                 </div>
     
-                <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3">
+                <div v-if="projects.length > 0" class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3">
                     <ProjectCard v-for="project in projects" :key="project.id" :project="project" :apiUrl="store.apiUrl" />
-               </div>
+                </div>
+
+                <div v-else class="text-center">
+                    <h2>Nessun progetto trovato</h2>
+                </div>
     
                <!-- Pagination -->
-               <div class="pagination d-flex justify-content-center mt-5">
+               <div v-if="lastPage > 1" class="pagination d-flex justify-content-center mt-5">
                     <!-- Go to first page button -->
                     <a class="btn btn-primary me-1" :class="{'disabled' : currentPage === 1 }" @click.prevent="getProjects(1)">
                         <i class="fa-solid fa-chevron-left"></i>

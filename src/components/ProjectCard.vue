@@ -17,6 +17,12 @@ export default{
             } else {
                 return this.project.description
             }
+        },
+        projectImg(){
+            return this.project.cover_path ? `${this.apiUrl}/storage/${this.project.cover_path}` : 'https://t3.ftcdn.net/jpg/04/34/72/82/360_F_434728286_OWQQvAFoXZLdGHlObozsolNeuSxhpr84.jpg';
+        },
+        imgAlt(){
+            return this.project.cover_path ? `Cover di ${this.project.title}` : 'Nessuna immagine disponibile';
         }
     }
 }
@@ -26,8 +32,7 @@ export default{
     <div class="col">
         <div class="card h-100">
             <div class="img-wrapper">
-                <img  v-if="project.cover_path" :src="apiUrl + '/storage/' + project.cover_path" :alt="`coved di ${project.title}`" class="card-img-top">
-                <img v-else src="https://www.svaghiamo.it/wp-content/uploads/2016/09/image-not-found-4a963b95bf081c3ea02923dceaeb3f8085e1a654fc54840aac61a57a60903fef.png" alt="Nessuna immagine disponibile" class="card-img-top">
+                <img  :src="projectImg" :alt="imgAlt" class="card-img-top">
             </div>
             <div class="card-body">
                 <h6 class="text-center text-primary">{{ project.type ? project.type.name : 'Nessuna Tipologia' }}</h6>
@@ -37,7 +42,7 @@ export default{
                     <span v-else class="text-secondary">No technologies</span>
                 </div>
                 <p v-if="project.description" class="card-text">{{ textTruncated }}</p>
-                <a href="" class="btn btn-primary">Visualizza</a>
+                <router-link :to="{name: 'project-page', params: {slug: project.slug}}" class="btn btn-primary">Visualizza</router-link>
             </div>
         </div>
     </div>

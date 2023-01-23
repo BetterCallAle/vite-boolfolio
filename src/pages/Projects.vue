@@ -17,11 +17,14 @@ export default{
             lastPage: null,
             projects: [],
             totalProjects: null,
+            types: [],
+            typeId: "",
             loading: false
         }
     },
     created(){
         this.getProjects(this.currentPage);
+        this.getTypes()
     },
     methods:{
         getProjects(page){
@@ -43,6 +46,11 @@ export default{
                 this.projects = resp.data.results.data;
                 this.loading = false
             })
+        },
+        getTypes(){
+            axios.get(`${this.store.apiUrl}/api/types`).then(resp =>{
+                this.types = resp.data.results
+            })
         }
     }
 }
@@ -56,8 +64,20 @@ export default{
 
             <AppLoader v-if="loading"/>
 
-            <div v-else class="project-wrapper">
-                <p class="text-end text-secondary">Trovati <span class="fw-bold text-black">{{ totalProjects }}</span> progetti</p>
+            <div v-else class="projects-wrapper">
+                <div class="projects-top d-flex justify-content-between mb-4">
+                    <!-- Filter -->
+                    <form @submit.prevent="" action="" class="d-flex">
+                        <select class="form-select" v-model="typeId">
+                            <option value="">Tutti</option>
+                            <option v-for="singleType in types" :key="singleType.id" :value="singleType.id">{{ singleType.name }}</option>
+                        </select>
+
+                        <button type="submit" class="btn btn-danger ms-2">Filtra</button>
+                    </form>
+                    <!-- /Filter -->
+                    <p class="text-end text-secondary">Trovati <span class="fw-bold text-black">{{ totalProjects }}</span> progetti</p>
+                </div>
     
                 <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3">
                     <ProjectCard v-for="project in projects" :key="project.id" :project="project" :apiUrl="store.apiUrl" />

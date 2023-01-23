@@ -58,7 +58,7 @@ export default{
 </script>
 
 <template>
-    <section id="projects" class="py-5">
+    <section id="projects" class="py-5 mt-4">
         <div class="container">
 
             <h1 class="text-center mb-5">Tutti i nostri progetti</h1>

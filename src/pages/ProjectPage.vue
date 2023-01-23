@@ -36,7 +36,7 @@ export default{
 </script>
 
 <template>
-  <section id="main-section" class="py-4">
+  <section id="main-section" class="py-5 mt-4">
     <div class="container">
       <div class="page-heading text-center">
             <h6 class="text-uppercase text-primary">{{ projectType }}</h6>

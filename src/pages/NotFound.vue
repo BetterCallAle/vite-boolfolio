@@ -8,7 +8,7 @@ export default{
 </script>
 
 <template>
-    <div class="container py-5">
+    <div class="container py-5 mt-4">
         <h1 class="text-center">404 Pagina non trovata</h1>
         <p class="text-center">La pagina che cerchi non è stata trovata</p>
         <div class="text-center">

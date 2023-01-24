@@ -15,6 +15,10 @@ export default{
                 {
                     linkName: 'Tutti i progetti',
                     routeName: 'projects'
+                },
+                {
+                    linkName: 'Contattaci',
+                    routeName: 'contacts'
                 }
             ]
         }

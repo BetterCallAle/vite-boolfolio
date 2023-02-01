@@ -1,7 +1,11 @@
-# Vue 3 + Vite
+# Boolfolio
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+This project is strictly related to its [Back End project](https://github.com/BetterCallAle/laravel-api)
 
-## Recommended IDE Setup
+## Used in this project:
 
-- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+- [Vue + Vite](https://vuejs.org/);
+- [Sass](https://sass-lang.com/);
+- [Axios](https://axios-http.com/docs/intro);
+- [Bootstrap](https://getbootstrap.com/);
+- [FontAwesome](https://fontawesome.com/);

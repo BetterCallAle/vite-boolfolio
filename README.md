@@ -5,6 +5,7 @@ This project is strictly related to its [Back End project](https://github.com/Be
 ## Used in this project:
 
 - [Vue + Vite](https://vuejs.org/);
+- [Vue Router](https://router.vuejs.org/);
 - [Sass](https://sass-lang.com/);
 - [Axios](https://axios-http.com/docs/intro);
 - [Bootstrap](https://getbootstrap.com/);
